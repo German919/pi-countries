@@ -12,10 +12,8 @@ const router = Router();
 const getAll = async () => {
     try {
         const response = await axios.get("https://restcountries.com/v3/all")
-        const data = await response.data.map(res => {
-           
+        const data = await response.data.map(res => {  
             return {
-
                 id : res.cca3,
                 name: res.name.common && res.name.common,
                 img: res.flags && res.flags.map(flag => flag), 
@@ -28,7 +26,7 @@ const getAll = async () => {
         }
     )
     return data;
-
+    
     }catch (err) {
         console.log(err);
     }
@@ -41,33 +39,32 @@ router.get("/countries", async (req, res)=>{
     try{  
         if(!name){
             countries.map(el => {
-                
                 Country.findOrCreate({
                     where: {name:el.name},
                     defaults:{
-                        id:el.id, name:el.name, image:el.img, 
-                        continent:el.continent, capital:el.capital,
-                        subregion:el.subregion, area:el.area, 
-                        population:el.population,
+                        id:el.id, name:el.name, 
+                        image:el.img, continent:el.continent, 
+                        capital:el.capital, subregion:el.subregion, 
+                        area:el.area, population:el.population,
                     }
                 })
             })
             const countriesAll = await Country.findAll();
-            res.status(200).send(countriesAll)
+            const newCountries = countriesAll.map( el => ({ 
+                id:el.id,
+                name:el.name,
+                image:el.image,
+                continent:el.continent, 
+                capital:el.capital
+            }))
+            res.status(200).send(newCountries)
         }else{
-            // const country = await countries.filter(el => el.name.toLowerCase().includes(name.toLowerCase()));
-            // country.length ? res.status(200).send(country)
-            // : res.status(404).send("No se encontraron paises")
-            // console.log(country)
             const newName = name.charAt(0).toUpperCase() + name.slice(1);
-            console.log(newName)
             const country = await Country.findAll({
                 where:{
-                   // [Op.iLike]: `%${newName}%`
                    name : {[Op.iLike]: `%${newName}%`}
                 }
             })
-            console.log(country)
             country.length ? res.status(200).send(country)
             : res.status(404).send("No countries found")
         }
