@@ -3,6 +3,7 @@ const { Router } = require('express');
 // Ejemplo: const authRouter = require('./auth.js');
 const axios = require('axios');
 const { Country, Activity} = require('../db');
+const { Op } = require('sequelize');
 
 const router = Router();
 
@@ -19,7 +20,7 @@ const getAll = async () => {
                 name: res.name.common && res.name.common,
                 img: res.flags && res.flags.map(flag => flag), 
                 continent: res.continents && res.continents.map(el => el),
-                capital: res.capital ? res.capital.map(el => el):["sin datos"],
+                capital: res.capital ? res.capital.map(el => el):["no data"],
                 subregion: res.subregion,
                 area: res.area,
                 population: res.population
@@ -54,10 +55,21 @@ router.get("/countries", async (req, res)=>{
             const countriesAll = await Country.findAll();
             res.status(200).send(countriesAll)
         }else{
-            const country = await countries.filter(el => el.name.toLowerCase().includes(name.toLowerCase()));
-            countries.length ? res.status(200).send(country)
-            : res.status(404).send("No se encontraron paises")
+            // const country = await countries.filter(el => el.name.toLowerCase().includes(name.toLowerCase()));
+            // country.length ? res.status(200).send(country)
+            // : res.status(404).send("No se encontraron paises")
+            // console.log(country)
+            const newName = name.charAt(0).toUpperCase() + name.slice(1);
+            console.log(newName)
+            const country = await Country.findAll({
+                where:{
+                   // [Op.iLike]: `%${newName}%`
+                   name : {[Op.iLike]: `%${newName}%`}
+                }
+            })
             console.log(country)
+            country.length ? res.status(200).send(country)
+            : res.status(404).send("No countries found")
         }
     }catch(err){
         console.log(err)
@@ -71,19 +83,26 @@ router.get("/countries/:id", async (req, res)=>{
         if(country){
             return res.status(200).send(country)
         }
-        res.status(404).send("No hay pais")
+        res.status(404).send("No countries found")
     }catch (err) {
         console.log(err)
     }
 });
 
 router.post("/activity", async (req, res)=>{
-    const {id, name, difficulty, duration, season} = req.body;
+    const {name, difficulty, duration, season, idCountry} = req.body;
     const activity = await Activity.create({ 
-        id, name, difficulty, duration, season
+        name, difficulty, duration, season
     })
-    res.status(200).send(activity);
-})
+    const country = await Country.findOne({
+        where: {
+            id : idCountry
+        },
+        attributes: ["id"]
+    });
+    activity.addCountry(country);
+    res.status(200).json({message:"Activity created successfully", c: country});
+});
 
 
 module.exports = router;
