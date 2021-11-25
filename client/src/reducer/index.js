@@ -1,7 +1,9 @@
-import {GET_ALL_CONTRIES} from "../actions";
+import {GET_ALL_CONTRIES, FILTER_BY_CONTINENTS, 
+        SEARCH_BY_NAME, ORDER_ASC_DESC, ORDER_BY_POPULATION} from "../actions";
 
 const initialState = {
-    countries:[]
+    countries:[],
+    copyCountries: []
 }
 
 const rootReducer = (state=initialState, action) => {
@@ -10,7 +12,50 @@ const rootReducer = (state=initialState, action) => {
         case GET_ALL_CONTRIES:{
             return{
                 ...state,
-                countries: [...state.countries, action.payload]
+                countries: action.payload,
+                copyCountries: action.payload
+            }
+        }
+        case FILTER_BY_CONTINENTS:{
+            const allCountries = state.copyCountries;
+            const filterCountries = action.payload === "All" ? allCountries : allCountries.filter( c => c.continent[0] === action.payload)
+
+            return {
+                ...state,
+                countries : filterCountries
+            }
+        }
+        case SEARCH_BY_NAME:{
+            return {
+                ...state,
+                countries: action.payload
+            }
+        }
+        case ORDER_ASC_DESC:{
+            const orderAscDesc = action.payload === "asc" ?
+            state.countries.sort((a, b)=> {
+                if(a.name > b.name) return 1
+                if(a.name < b.name) return -1
+                return 0
+            }) :
+            state.countries.sort((a, b)=> {
+                if(a.name > b.name) return -1
+                if(a.name < b.name) return 1
+                return 0
+            })
+
+            return {
+                ...state,
+                counties : orderAscDesc
+            }
+        }
+        case ORDER_BY_POPULATION:{
+            const orderPopulation = action.payload === "menor" ?
+            state.countries.sort((a, b)=> a.population - b.population)
+            : state.countries.sort((a, b)=> b.population - a.population)
+            return {
+                ...state,
+                countries: orderPopulation
             }
         }
         default:

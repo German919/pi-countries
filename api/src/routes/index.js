@@ -55,7 +55,8 @@ router.get("/countries", async (req, res)=>{
                 name:el.name,
                 image:el.image,
                 continent:el.continent, 
-                capital:el.capital
+                capital:el.capital, 
+                population:el.population
             }))
             res.status(200).send(newCountries)
         }else{
