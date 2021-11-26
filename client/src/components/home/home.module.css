@@ -20,7 +20,6 @@
     display:flex;
     flex-direction:column;
     align-items: flex-start;
-    /* border: 2px solid white; */
     width:250px;
 }
 
@@ -42,6 +41,32 @@
     display:flex;
     justify-content: space-around;
     padding:1rem;
+}
+
+.containerBtnCreateAct{
+    margin-top: 3rem;
+}
+.btnCreateAct{
+    width:215px;
+    border-radius: .1rem;
+    font-weight: 500;
+    font-size: 15px;
+    font-family: 'Roboto Slab', serif;
+    padding: 10px;
+    border: transparent;
+    border:none;
+    border-radius: .2rem;
+    background-image: linear-gradient(#F5B7B1 , #CB4335);
+    cursor: pointer;
+    color: rgb(34, 22, 22);
+}
+
+.btnCreateAct:hover{
+    color: white;
+    background-image: linear-gradient(#e69d96 , #5f1007);
+}
+.btnCreateAct:active{
+    transform:scale(.99)
 }
 
 

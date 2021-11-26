@@ -1,5 +1,6 @@
 .container{
-    margin-top:4.45rem;
+    position: relative;
+    margin-top:4.72rem;
     margin-bottom:4rem;
 }
 
@@ -8,6 +9,7 @@
     border-radius: .1rem;
     border:none;
     width:150px;
+    font-family: 'Roboto Slab', serif;
 }
 .inputSearch:focus{
     outline: none;
@@ -16,6 +18,7 @@
 .btnSearch{
     border-radius: .1rem;
     font-weight: 700;
+    font-family: 'Roboto Slab', serif;
     padding: 7px;
     border: transparent;
     border:none;
@@ -31,4 +34,10 @@
 }
 .btnSearch:active{
     transform:scale(.99)
+}
+
+.error{
+    position: absolute;
+    color: #d69b95;
+    
 }

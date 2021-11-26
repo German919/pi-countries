@@ -38,7 +38,7 @@ const Home = () => {
     const handleRecargar = () => {
         dispatch(getAllContries())
     }
-    console.log(indexOfLastCountry)
+    
     return(
         <div className={styles.container}>
             <div className={styles.containerSuperior}>
@@ -74,8 +74,8 @@ const Home = () => {
               
                     <FilterByContinents /> 
 
-                    <div>
-                        <button>Crear Actividad</button>
+                    <div className={styles.containerBtnCreateAct}>
+                        <button className={styles.btnCreateAct}>Crear Actividad</button>
                     </div>
 
                 </div>
