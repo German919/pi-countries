@@ -44,7 +44,10 @@ const Home = () => {
             <div className={styles.containerSuperior}>
 
                 <div>
-                    <button onClick={handleRecargar}>Recargar pagina</button>
+                    <button 
+                        onClick={handleRecargar}
+                        className={styles.BtnReloadCountries}
+                        >Reload the countries</button>
                 </div>
 
                 <OrderByPopulation
@@ -75,7 +78,7 @@ const Home = () => {
                     <FilterByContinents /> 
 
                     <div className={styles.containerBtnCreateAct}>
-                        <button className={styles.btnCreateAct}>Crear Actividad</button>
+                        <button className={styles.btnCreateAct}>Create activity</button>
                     </div>
 
                 </div>
@@ -98,6 +101,7 @@ const Home = () => {
                                         image={el.image} 
                                         name={el.name} 
                                         continent={el.continent} 
+                                        population={el.population}
                                     />
                                 ))
                             : <h1>cargando...</h1>

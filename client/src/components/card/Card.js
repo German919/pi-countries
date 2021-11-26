@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from "./card.module.css";
 
-const Card = ({image, name, continent}) => {
+const Card = ({image, name, continent, population}) => {
     
     return (
         <div className={styles.container}>
@@ -12,10 +12,11 @@ const Card = ({image, name, continent}) => {
                 <img className={styles.imagen} src={image[0]} alt={name} />
             </div>
             <div className={styles.containerSubtitle}>
-                <h4 className={styles.subTitle}>{continent}</h4>
+                <h6 className={styles.subTitle}>{continent}</h6>
             </div>
-            <div className={styles.containerButton}>
-                <button className={styles.btnDetails}>Details</button>
+            <div className={styles.containerSubtitle}>
+            <h6 className={styles.population}>Population: {population}</h6>
+                {/* <button className={styles.btnDetails}>Details</button> */}
             </div>
         </div>
     )

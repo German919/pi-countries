@@ -17,7 +17,7 @@
 
 .btnSearch{
     border-radius: .1rem;
-    font-weight: 700;
+    font-weight: 500;
     font-family: 'Roboto Slab', serif;
     padding: 7px;
     border: transparent;
@@ -25,7 +25,7 @@
     border-radius: .2rem;
     background-image: linear-gradient(#F5B7B1 , #CB4335);
     cursor: pointer;
-    color: rgb(61, 43, 43);
+    color: rgb(32, 29, 29);
 }
 
 .btnSearch:hover{

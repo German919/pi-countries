@@ -5,10 +5,12 @@
   background-image: linear-gradient(rgba(215, 219, 221, 0.4), rgba(156, 40, 27, 0.6)); 
   border-radius: .2rem;
   animation: principal 1.5s forwards;
-    
+  cursor: pointer;
 }
+
 .container:hover{
   animation: principal-hover 1.5s forwards;
+  background-image: linear-gradient(rgba(245, 248, 248, 0.5), rgba(141, 31, 19, 0.7)); 
 }
 
 .containerName{
@@ -22,11 +24,13 @@
 
 .containerImagen{
   height:40%;
+  width: 70%;
+  margin:0 auto;
   margin-top: 5px;
 }
 .imagen{
-  width: 50%;
-  height:110px;
+  width: 100%;
+  height:100%; 
   border-radius: .2rem;
 }
 
@@ -35,14 +39,20 @@
 }
 .subTitle{
   margin: .5rem 0 1rem 0;
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: #01161a;
 }
 
-.containerButton{
-  height:15%;
+.population{
+  margin: .5rem 0 1rem 0;
+  font-size: .9rem;
+  color: #01161a;
 }
-.btnDetails{
+
+/* .containerButton{
+  height:15%;
+} */
+/* .btnDetails{
   border-radius: .2rem;
   font-weight: 700;
   padding: 7px;
@@ -59,7 +69,7 @@
 }
 .btnDetails:active{
   transform:scale(.99)
-}
+} */
 @keyframes principal {
   to {
     transform: perspective(500px) rotate3d(0, -1, 0, 10deg);
