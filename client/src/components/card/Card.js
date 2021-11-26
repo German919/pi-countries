@@ -5,9 +5,18 @@ const Card = ({image, name, continent}) => {
     
     return (
         <div className={styles.container}>
-            <img className={styles.imagen} src={image[0]} alt={name} />
-            <h4>{name}</h4>
-            <h4>{continent}</h4>
+            <div className={styles.containerName}>
+                <h4 className={styles.title}>{name}</h4>
+            </div>
+            <div className={styles.containerImagen}>
+                <img className={styles.imagen} src={image[0]} alt={name} />
+            </div>
+            <div className={styles.containerSubtitle}>
+                <h4 className={styles.subTitle}>{continent}</h4>
+            </div>
+            <div className={styles.containerButton}>
+                <button className={styles.btnDetails}>Details</button>
+            </div>
         </div>
     )
 }

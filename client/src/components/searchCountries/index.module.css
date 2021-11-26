@@ -1,0 +1,34 @@
+.container{
+    margin-top:4.45rem;
+    margin-bottom:4rem;
+}
+
+.inputSearch{
+    padding: 7px;
+    border-radius: .1rem;
+    border:none;
+    width:150px;
+}
+.inputSearch:focus{
+    outline: none;
+}
+
+.btnSearch{
+    border-radius: .1rem;
+    font-weight: 700;
+    padding: 7px;
+    border: transparent;
+    border:none;
+    border-radius: .2rem;
+    background-image: linear-gradient(#F5B7B1 , #CB4335);
+    cursor: pointer;
+    color: rgb(61, 43, 43);
+}
+
+.btnSearch:hover{
+    color: white;
+    background-image: linear-gradient(#e69d96 , #5f1007);
+}
+.btnSearch:active{
+    transform:scale(.99)
+}

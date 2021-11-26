@@ -12,17 +12,24 @@ import OrderByPopulation from '../orderPopulation';
 
 const Home = () => {
     
-    const [order, setOrder] = useState("");
     const dispatch = useDispatch();
     const countries = useSelector((state) => state.countries);
+
+    const [order, setOrder] = useState("");
     const [currentPage, setCurrentPage] = useState(1); //comienza en la pagina 1
     const [countriesPerPage, setCountriesPerPage] = useState(9); // cada pagina tiene 9 countries
+    
     const indexOfLastCountry = currentPage * countriesPerPage; //9
     const indexOfFirstCountry = indexOfLastCountry - countriesPerPage; //0
     const currentCountries = countries && countries.slice(indexOfFirstCountry, indexOfLastCountry);
 
     const paginado = (page) => {
         setCurrentPage(page)
+        if(page === 1){
+            setCountriesPerPage(9)
+        }else{
+            setCountriesPerPage(10)
+        }
     }
     useEffect(() => {
         dispatch(getAllContries())
@@ -31,66 +38,72 @@ const Home = () => {
     const handleRecargar = () => {
         dispatch(getAllContries())
     }
-    
+    console.log(indexOfLastCountry)
     return(
         <div className={styles.container}>
-            <div>
+            <div className={styles.containerSuperior}>
+
                 <div>
                     <button onClick={handleRecargar}>Recargar pagina</button>
                 </div>
 
-                <SearchCountries />
-              
-                <FilterByContinents /> 
+                <OrderByPopulation
+                    setCurrentPage={setCurrentPage} 
+                    setOrder={setOrder} 
+                />
+
+                <OrderAscDesc 
+                    setCurrentPage={setCurrentPage} 
+                    setOrder = {setOrder}    
+                />
 
                 <div>
-                    <button>Crear Actividad</button>
+                    <select>
+                        <option value="">actividades1</option>
+                        <option value="">actividades2</option>
+                    </select>
                 </div>
-        
-            </div>
 
-            <div>
-                <div>
+            </div>              
+            
+            <div className={styles.containerInferior}> 
 
-                    <OrderByPopulation
-                        setCurrentPage={setCurrentPage} 
-                        setOrder={setOrder} />
+                <div className={styles.containerInferiorSub1}>
 
-                    <OrderAscDesc 
-                        setCurrentPage={setCurrentPage} 
-                        setOrder = {setOrder}    
-                        />
+                    <SearchCountries />
+              
+                    <FilterByContinents /> 
 
                     <div>
-                        <select>
-                            <option value="">actividades1</option>
-                            <option value="">actividades2</option>
-                        </select>
+                        <button>Crear Actividad</button>
                     </div>
 
-                    <div>
+                </div>
+
+                <div className={styles.containerInferiorSub2}>
+                    <div className={styles.containerInferiorsub2Pag}>
                         <Paginado 
                             countries={countries && countries.length} 
                             paginado={paginado} 
                             countriesPerPage={countriesPerPage}
-                            />
+                        />
                     </div>
-
-                </div>
-                
-                <div className={styles.grid}>
-                    {
-                        currentCountries.length > 0 ? 
-                        currentCountries.map( (el, i) => (
-                                <Card 
-                                    key={i} 
-                                    image={el.image} 
-                                    name={el.name} 
-                                    continent={el.continent} 
-                                />
-                            ))
-                        : <h1>cargando...</h1>
-                    }
+                    
+                    <div className={styles.grid}>
+                        {
+                            currentCountries.length > 0 ? 
+                            currentCountries.map( (el, i) => (
+                                    <Card 
+                                        key={i} 
+                                        image={el.image} 
+                                        name={el.name} 
+                                        continent={el.continent} 
+                                    />
+                                ))
+                            : <h1>cargando...</h1>
+                        }
+                    </div>
+                    
                 </div>
             </div>
         </div>

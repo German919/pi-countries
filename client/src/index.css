@@ -5,6 +5,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url("https://besthqwallpapers.com/Uploads/17-4-2021/164200/thumb2-earth-from-space-night-on-earth-city-lights-earth-view-from-space-atmosphere.jpg"); 
+  background-repeat: no-repeat;
+  background-size:cover;
+  font-family: 'Roboto Slab', serif;
 }
 
 code {
