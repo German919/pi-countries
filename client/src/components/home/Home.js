@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {getAllContries} from "../../actions";
 import Card from "../card/Card";
 import styles from "./home.module.css";
+import stylesLoading from "./loading.module.css";
 import Paginado from "../paginado";
 import FilterByContinents from '../filterByContinents';
 import SearchCountries from "../searchCountries"
@@ -104,7 +105,12 @@ const Home = () => {
                                         population={el.population}
                                     />
                                 ))
-                            : <h1>cargando...</h1>
+                            :<div className={stylesLoading.containerLoading}> 
+                            <div className={stylesLoading.ldsSpinner}><div></div><div></div>
+                            <div></div><div></div><div></div><div></div><div>
+                            </div><div></div><div></div><div></div><div></div>
+                            <div></div></div>
+                            </div>
                         }
                     </div>
                     
