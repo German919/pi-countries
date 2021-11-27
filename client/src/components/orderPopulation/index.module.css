@@ -1,0 +1,30 @@
+.container{
+    padding:3px;
+    cursor: pointer;
+}
+
+.containerSelect{
+    background-image: linear-gradient(#F5B7B1 , #CB4335);
+    font-weight: 500;
+    font-family: 'Roboto Slab', serif;
+    padding: 2.2px;
+    border: transparent;
+    border:none;
+    border-radius: .2rem;
+    cursor: pointer;
+    color: rgb(32, 29, 29);
+    outline: none;
+}
+.containerSelect:hover{
+    color: white;
+    background-image: linear-gradient(#e69d96 , #5f1007);
+}
+
+.containerSelectOp{
+    background-color:#b6716b;
+    font-weight: 500;
+    font-family: 'Roboto Slab', serif;
+    padding: 2.2px;
+    cursor: pointer;
+    color: rgb(20, 20, 20);
+}

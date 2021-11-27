@@ -1,6 +1,7 @@
 import React from 'react';
 import {useDispatch} from "react-redux";
 import { orderAscDesc } from '../../actions';
+import styles from "./index.module.css";
 
 const OrderAscDesc = ({setCurrentPage, setOrder}) => {
 
@@ -13,10 +14,10 @@ const OrderAscDesc = ({setCurrentPage, setOrder}) => {
     }
 
     return (
-        <div>
-            <select onChange={handleOrder}>
-                <option value="asc">A-Z</option>
-                <option value="desc">Z-A</option>
+        <div className={styles.container}>
+            <select className={styles.containerSelect} onChange={handleOrder}>
+                <option className={styles.containerSelectOp} value="asc">A-Z</option>
+                <option className={styles.containerSelectOp} value="desc">Z-A</option>
             </select>
         </div>
     )

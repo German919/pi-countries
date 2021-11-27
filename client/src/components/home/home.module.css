@@ -40,7 +40,9 @@
 .containerSuperior{
     display:flex;
     justify-content: space-around;
-    padding:1rem;
+    align-items:center;
+    padding:2rem 2rem 1.5rem 2rem;
+    background-image: linear-gradient(#333131 , #160301); 
 }
 
 .containerBtnCreateAct{
@@ -70,9 +72,8 @@
 }
 
 .BtnReloadCountries{
-    border-radius: .2rem;
     font-weight: 700;
-    padding: 7px;
+    padding: 5px;
     border: transparent;
     border-radius: .2rem;
     background-image: linear-gradient(#F5B7B1 , #CB4335);
