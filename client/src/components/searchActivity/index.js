@@ -1,17 +1,26 @@
 import React from 'react';
 import styles from './index.module.css';
+import {useDispatch} from "react-redux";
+import { filterByActivity } from '../../actions';
 
-const SearchActivity = ({activities}) => {
+const SearchActivity = ({activities, setOrder}) => {
+
+    const dispatch = useDispatch();
+
+    const handleFilterActivity = (e) =>{
+        dispatch(filterByActivity(e.target.value));
+        setOrder(e.target.value);
+    }
 
     return (
 
         <div className={styles.container}>
-            <select className={styles.containerSelect}>
+            <select  onChange={(e)=>handleFilterActivity(e)} className={styles.containerSelect}>
                 {
                     activities && activities.map( (act, i) => (
                         <option key={i} 
                             className={styles.containerSelectOp} 
-                            value={act.id}>{act.name}</option>        
+                            value={act.name}>{act.name}</option>        
                     ))
                 }
             </select>

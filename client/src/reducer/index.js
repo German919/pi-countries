@@ -1,6 +1,6 @@
 import {GET_ALL_CONTRIES, FILTER_BY_CONTINENTS, 
         SEARCH_BY_NAME, ORDER_ASC_DESC, ORDER_BY_POPULATION,
-        CREATE_ACTIVITY, GET_ALL_ACTIVITIES} from "../actions";
+        CREATE_ACTIVITY, GET_ALL_ACTIVITIES, FILTER_BY_ACTIVITY} from "../actions";
 
 const initialState = {
     countries:[],
@@ -21,7 +21,6 @@ const rootReducer = (state=initialState, action) => {
         case FILTER_BY_CONTINENTS:{
             const allCountries = state.copyCountries;
             const filterCountries = action.payload === "All" ? allCountries : allCountries.filter( c => c.continent[0] === action.payload)
-
             return {
                 ...state,
                 countries : filterCountries
@@ -70,6 +69,17 @@ const rootReducer = (state=initialState, action) => {
             return {
                 ...state,
                 activities: action.payload
+            }
+        }case FILTER_BY_ACTIVITY:{
+            const activitiesCountries = [];
+            state.copyCountries.map(c=> c.activities?.forEach(e=>{
+                if(e.name === action.payload){
+                    activitiesCountries.push(c)
+                }
+            }))
+            return {
+                ...state,
+                countries: activitiesCountries
             }
         }
         default:

@@ -7,6 +7,7 @@ export const ORDER_ASC_DESC = "ORDER_ASC_DESC";
 export const ORDER_BY_POPULATION = "ORDER_BY_POPULATION";
 export const CREATE_ACTIVITY = "CREATE_ACTIVITY";
 export const GET_ALL_ACTIVITIES = "GET_ALL_ACTIVITIES";
+export const FILTER_BY_ACTIVITY = "FILTER_BY_ACTIVITY";
 
 export const getAllContries = () => {
     return async function(dispatch) {
@@ -67,5 +68,12 @@ export const postActivity = (activity) => {
             type: GET_ALL_ACTIVITIES,
             payload: activities.data
         }) 
+    }
+ }
+
+ export const filterByActivity = (activity) => {
+    return { 
+        type: FILTER_BY_ACTIVITY,
+        payload : activity
     }
  }

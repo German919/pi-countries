@@ -88,7 +88,6 @@ const PageCreate = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         setError(validate(data))
-        console.log(error)
         if(Object.keys(validate(data)).length === 0){
             dispatch(postActivity(data))
             setData({
@@ -98,7 +97,9 @@ const PageCreate = () => {
                 season:"",
                 idCountry:[]
             })
+            alert("Successfully created activity!!")
         }
+        
     }
     const handleBackPage = (e) => {
         history.push("/home")

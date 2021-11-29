@@ -81,7 +81,10 @@ const Home = () => {
                     setOrder = {setOrder}    
                 />
 
-                <SearchActivity activities = {activities} />
+                <SearchActivity 
+                    activities = {activities} 
+                    setOrder = {setOrder}    
+                    />
 
             </div>              
             
