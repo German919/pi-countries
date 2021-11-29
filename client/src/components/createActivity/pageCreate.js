@@ -189,8 +189,7 @@ const PageCreate = () => {
                             }
                         </div>
                         <div className={styles.containerFormAll}>
-                            <button className={styles.containerFormBtn}>Create</button>
-                            {/* <button onClick={handleCancel} className={styles.containerFormBtn}>Cancel</button> */}
+                            <button className={styles.containerFormBtn}>Create</button>                  
                         </div>
                        
                     </form>
@@ -211,10 +210,10 @@ const PageCreate = () => {
                             className={styles.containerCountriesSelectOne}
                             key={i}
                         >
-                            <i  
-                                className="fas fa-trash-alt"  
+                            <button  
+                                className={styles.btnDelete}
                                 onClick={()=>handleDelete(country)}
-                                ></i>
+                                >X</button>
                             <h4>{country}</h4>
                         </div>
                     ))

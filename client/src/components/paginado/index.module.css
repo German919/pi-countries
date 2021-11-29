@@ -1,7 +1,9 @@
 .lista{
     display: flex;
-    padding: 0;
+    padding: 1px;
     gap: 0.35rem; 
+    background-image: linear-gradient(#4d3838 , #300a06);
+    border-bottom-right-radius: 4px;
 }
 
 .li1{

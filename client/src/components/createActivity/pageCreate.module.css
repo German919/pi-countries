@@ -161,19 +161,22 @@
     border-radius: .7rem;
     background-color: #FEF5E7;
 }
-i{
+.btnDelete{
     position:absolute;
     top:7px;
     right:5px;
     color:#1d1d1c;
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     cursor: pointer;
     font-family: 'Roboto Slab', serif;
-    font-weight: 700;
+    font-weight: 900;
+    border:none;
+    border-radius: .5rem;
+    background-color: #b6a78f;
 }
-i:hover{
+.btnDelete:hover{
     color:rgb(219, 60, 60);
-}
+} 
 
 .errorName{
     position: absolute;

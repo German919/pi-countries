@@ -56,10 +56,11 @@ const Home = () => {
         <div className={styles.container}>
             <div className={styles.containerSuperior}>
                 <div>
+                     
                     <button 
                         onClick={handleBackPage}
                         className={styles.BtnReloadCountries}
-                        >back
+                        ><i class="fas fa-backward"></i> Back
                     </button> 
                 </div>
                 
