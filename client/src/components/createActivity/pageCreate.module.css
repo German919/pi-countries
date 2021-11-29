@@ -1,0 +1,207 @@
+.contenedorPrincipal{
+    display: flex;
+    flex-direction: column;
+}
+
+.containerBtns{
+    display: flex;
+    margin: 1rem auto;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    margin-top:.9rem;
+}
+
+.imagen{
+    width: 100%;
+    height: 100%;
+    border-image-slice: 30;
+    border-radius: .7rem;
+}
+.containerForm{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start;
+    padding: 1rem;
+    font-family: 'Roboto Slab', serif;
+}
+.containerFormAll{
+    padding: .8rem
+}
+.labelActivity{
+    color: #EDBB99;
+    border-radius:.2rem;
+    padding:0.3rem;
+    font-family: 'Roboto Slab', serif;
+}
+
+.inputActivity{
+    position: relative;
+    border: none;
+    border-radius:.2rem; 
+    background-color: #FEF5E7;
+    padding:0.3rem;
+    font-family: 'Roboto Slab', serif;
+    color: #2e1603;
+    font-weight: 600;
+    letter-spacing:1px;
+    font-size:.9rem;
+}
+.inputActivity:focus{
+    outline: none;
+}
+
+.inputActivity1{
+    position: relative;
+    border: none;
+    border-radius:.2rem; 
+    background-color: #FEF5E7;
+    padding:0.3rem;
+    font-family: 'Roboto Slab', serif;
+    color: #2e1603;
+    font-weight: 600;
+    letter-spacing:1px;
+    font-size:.9rem;
+}
+.inputActivity1:focus{
+    outline: none;
+}
+.selectActivity{
+    position: relative;
+    border: none;
+    border-radius:.2rem; 
+    background-color: #FEF5E7;
+    padding:0.25rem;
+    font-family: 'Roboto Slab', serif;
+    color: #2e1603;
+    font-weight: 600;
+    letter-spacing:1px;
+    font-size:.85rem;
+}
+
+.selectActivity:focus{
+    outline: none;
+}
+
+.selectActivity1{
+    position: relative;
+    border: none;
+    border-radius:.2rem; 
+    background-color: #FEF5E7;
+    padding:0.25rem;
+    font-family: 'Roboto Slab', serif;
+    color: #2e1603;
+    font-weight: 600;
+    letter-spacing:1px;
+    font-size:.85rem;
+}
+
+.selectActivity1:focus{
+    outline: none;
+}
+
+.selectActivity2{
+    position: relative;
+    border: none;
+    border-radius:.2rem; 
+    background-color: #FEF5E7;
+    padding:0.25rem;
+    font-family: 'Roboto Slab', serif;
+    color: #2e1603;
+    font-weight: 600;
+    letter-spacing:1px;
+    font-size:.85rem;
+}
+
+.selectActivity2:focus{
+    outline: none;
+}
+
+.containerFormBtn{
+    font-weight: 500;
+    font-family: 'Roboto Slab', serif;
+    padding: 7px;
+    border: transparent;
+    border:none;
+    border-radius: .2rem;
+    background-image: linear-gradient(#FEF5E7 , #f1e2c9);
+    cursor: pointer;
+    color: rgb(32, 29, 29);
+    transition-duration: 2s;
+    margin: 10px 5px 10px 5px
+}
+
+.containerFormBtn:hover{
+    color: rgb(31, 7, 7);
+    background-image: linear-gradient(#FEF5E7 , #cfb58a);
+    transition-duration: 2s
+}
+.containerFormBtn:active{
+    transform:scale(.99)
+}
+
+.containerCountriesSelect{
+    display: flex;
+    justify-content: center;
+    gap:.5rem;
+    padding: 1rem;
+}
+
+.containerCountriesSelectOne{
+    width: 55px; 
+    position: relative;
+    padding:1.5rem;
+    border-radius: .7rem;
+    background-color: #FEF5E7;
+}
+i{
+    position:absolute;
+    top:7px;
+    right:5px;
+    color:#1d1d1c;
+    font-size: 1.3rem;
+    cursor: pointer;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
+}
+i:hover{
+    color:rgb(219, 60, 60);
+}
+
+.errorName{
+    position: absolute;
+    top: 110px;
+    right:324px;
+    color:rgb(235, 79, 79)
+}
+.errorDuration{
+    position: absolute;
+    top: 217px;
+    right:367px;
+    color:rgb(235, 79, 79)
+}
+.errorDifficulty{
+    position: absolute;
+    top:162px;
+    right:362px;
+    color:rgb(235, 79, 79)
+}
+.errorSeason{
+    position: absolute;
+    top:270px;
+    right: 380px;
+    color:rgb(235, 79, 79)
+}
+.errorId{
+    position: absolute;
+    top:325px;
+    right: 318px;
+    color:rgb(235, 79, 79)
+}

@@ -10,25 +10,23 @@ const SearchCountries = () => {
 
     const [error, setError] = useState({name:""});
 
-    const stateCountries = useSelector((state)=> state.countries);
+    const countries = useSelector((state)=> state.copyCountries);
     
     const validate = (value) => {
         let errors ={}
-        const findCountry = stateCountries.find(el=> el.name.toLowerCase().includes(value.toLowerCase()))
+        const findCountry = countries.find(el=> el.name.toLowerCase().includes(value.toLowerCase()))
         if(!value){
             errors.name = "Required field"
         }else if(findCountry === undefined){
             errors.name = "Country not found"
         }
-        
         return errors;
     }
     
     const handleSubmit = (e) => {
         e.preventDefault();
         setError(validate(name))
-        if(Object.keys(error).length === 0){
-            console.log("PASOOO")
+        if(Object.keys(validate(name)).length === 0){
             dispatch(searchByName(name));
             setName("");
         }

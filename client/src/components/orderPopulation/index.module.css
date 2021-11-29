@@ -14,10 +14,12 @@
     cursor: pointer;
     color: rgb(32, 29, 29);
     outline: none;
+    transition-duration: 1.6s
 }
 .containerSelect:hover{
     color: white;
     background-image: linear-gradient(#e69d96 , #5f1007);
+    transition-duration: 1.6s
 }
 
 .containerSelectOp{

@@ -33,35 +33,44 @@ const getAll = async () => {
 }
 
 router.get("/countries", async (req, res)=>{
-    const countries = await getAll();
+    // const countries = await getAll();
     const name = req.query.name;
     
     try{  
         if(!name){
-            countries.map(el => {
-                Country.findOrCreate({
+            const countries = await getAll();
+            countries.map((el) => {
+                    Country.findOrCreate({
                     where: {name:el.name},
                     defaults:{
-                        id:el.id, name:el.name, 
-                        image:el.img, continent:el.continent, 
-                        capital:el.capital, subregion:el.subregion, 
-                        area:el.area, population:el.population,
+                        id:el.id, 
+                        name:el.name, 
+                        image:el.img, 
+                        continent:el.continent, 
+                        capital:el.capital, 
+                        subregion:el.subregion, 
+                        area:el.area, 
+                        population:el.population,
                     }
                 })
             })
-            const countriesAll = await Country.findAll();
-            const newCountries = countriesAll.map( el => ({ 
-                id:el.id,
-                name:el.name,
-                image:el.image,
-                continent:el.continent, 
-                capital:el.capital, 
-                population:el.population
-            }))
-            res.status(200).send(newCountries)
+            const countriesAll = await Country.findAll({
+                include: {model: Activity}
+            });
+            // const newCountries = countriesAll.map( el => ({ 
+            //     id:el.id,
+            //     name:el.name,
+            //     image:el.image,
+            //     continent:el.continent, 
+            //     capital:el.capital, 
+            //     population:el.population
+            // }))
+            // res.status(200).send(newCountries)
+            res.status(200).send(countriesAll)
         }else{
             const newName = name.charAt(0).toUpperCase() + name.slice(1);
             const country = await Country.findAll({
+                include: Activity,
                 where:{
                    name : {[Op.iLike]: `%${newName}%`}
                 }
@@ -77,7 +86,9 @@ router.get("/countries", async (req, res)=>{
 router.get("/countries/:id", async (req, res)=>{
     const id = req.params.id;
     try{
-        const country = await Country.findByPk(id.toUpperCase());
+        const country = await Country.findByPk(id.toUpperCase(), {
+            include: Activity,
+        });
         if(country){
             return res.status(200).send(country)
         }

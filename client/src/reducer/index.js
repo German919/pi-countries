@@ -1,9 +1,11 @@
 import {GET_ALL_CONTRIES, FILTER_BY_CONTINENTS, 
-        SEARCH_BY_NAME, ORDER_ASC_DESC, ORDER_BY_POPULATION} from "../actions";
+        SEARCH_BY_NAME, ORDER_ASC_DESC, ORDER_BY_POPULATION,
+        CREATE_ACTIVITY} from "../actions";
 
 const initialState = {
     countries:[],
-    copyCountries: []
+    copyCountries: [],
+    activities:[],
 }
 
 const rootReducer = (state=initialState, action) => {
@@ -56,6 +58,12 @@ const rootReducer = (state=initialState, action) => {
             return {
                 ...state,
                 countries: orderPopulation
+            }
+        }
+        case CREATE_ACTIVITY:{
+            return {
+                ...state,
+                activities: [...state.activities, action.payload]
             }
         }
         default:

@@ -9,9 +9,14 @@ import FilterByContinents from '../filterByContinents';
 import SearchCountries from "../searchCountries"
 import OrderAscDesc from '../orderAscDesc';
 import OrderByPopulation from '../orderPopulation';
+import SearchActivity from '../searchActivity';
+import CreateActivity from '../createActivity';
+import {useHistory} from "react-router-dom";
 
 
 const Home = () => {
+
+    const history = useHistory()
     
     const dispatch = useDispatch();
     const countries = useSelector((state) => state.countries);
@@ -39,16 +44,27 @@ const Home = () => {
     const handleRecargar = () => {
         dispatch(getAllContries())
     }
-    
+
+    const handleBackPage = () => {
+        history.push("/")
+    }
     return(
         <div className={styles.container}>
             <div className={styles.containerSuperior}>
-
+                <div>
+                    <button 
+                        onClick={handleBackPage}
+                        className={styles.BtnReloadCountries}
+                        >back
+                    </button> 
+                </div>
+                
                 <div>
                     <button 
                         onClick={handleRecargar}
                         className={styles.BtnReloadCountries}
-                        >Reload the countries</button>
+                        >Reload the countries
+                    </button>
                 </div>
 
                 <OrderByPopulation
@@ -61,12 +77,7 @@ const Home = () => {
                     setOrder = {setOrder}    
                 />
 
-                <div>
-                    <select>
-                        <option value="">actividades1</option>
-                        <option value="">actividades2</option>
-                    </select>
-                </div>
+                <SearchActivity />
 
             </div>              
             
@@ -78,9 +89,7 @@ const Home = () => {
               
                     <FilterByContinents /> 
 
-                    <div className={styles.containerBtnCreateAct}>
-                        <button className={styles.btnCreateAct}>Create activity</button>
-                    </div>
+                    <CreateActivity />
 
                 </div>
 
@@ -93,7 +102,7 @@ const Home = () => {
                         />
                     </div>
                     
-                    <div className={styles.grid}>
+                    <div className={currentCountries.length < 3 ? styles.flexContainer : styles.grid}>
                         {
                             currentCountries.length > 0 ? 
                             currentCountries.map( (el, i) => (
