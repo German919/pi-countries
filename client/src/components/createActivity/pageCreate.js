@@ -10,15 +10,15 @@ const validate = (value) => {
     const errors ={};
 
     if(!value.name){
-        errors.name = "Required field"
+        errors.name = "Required field name"
     }else if(!value.difficulty){
-        errors.difficulty = "Required field"
+        errors.difficulty = "Required field difficulty"
     }else if(!value.duration){
-        errors.duration = "Required field"
+        errors.duration = "Required field duration"
     }else if(!value.season){
-        errors.season = "Required field"
+        errors.season = "Required field season"
     }else if(value.idCountry.length === 0){
-        errors.idCountry = "Required field"
+        errors.idCountry = "Required field country"
     }
     console.log(value.idCountry)
     return errors;
@@ -189,6 +189,7 @@ const PageCreate = () => {
                         </div>
                         <div className={styles.containerFormAll}>
                             <button className={styles.containerFormBtn}>Create</button>
+                            {/* <button onClick={handleCancel} className={styles.containerFormBtn}>Cancel</button> */}
                         </div>
                        
                     </form>

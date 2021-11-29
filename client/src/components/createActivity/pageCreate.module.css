@@ -177,31 +177,31 @@ i:hover{
 
 .errorName{
     position: absolute;
-    top: 110px;
-    right:324px;
+    top: 138px;
+    right:278px;
     color:rgb(235, 79, 79)
 }
 .errorDuration{
     position: absolute;
-    top: 217px;
-    right:367px;
+    top: 245px;
+    right:298px;
     color:rgb(235, 79, 79)
 }
 .errorDifficulty{
     position: absolute;
-    top:162px;
-    right:362px;
+    top:192px;
+    right:290px;
     color:rgb(235, 79, 79)
 }
 .errorSeason{
     position: absolute;
-    top:270px;
-    right: 380px;
+    top:298px;
+    right: 325px;
     color:rgb(235, 79, 79)
 }
 .errorId{
     position: absolute;
-    top:325px;
-    right: 318px;
+    top:353px;
+    right: 258px;
     color:rgb(235, 79, 79)
 }

@@ -103,7 +103,7 @@ router.post("/activity", async (req, res)=>{
     const activity = await Activity.create({ 
         name, difficulty, duration, season
     })
-    const country = await Country.findOne({
+    const country = await Country.findAll({
         where: {
             id : idCountry
         },
@@ -112,6 +112,17 @@ router.post("/activity", async (req, res)=>{
     activity.addCountry(country);
     res.status(200).json({message:"Activity created successfully", c: country});
 });
+
+router.get("/activities", async (req, res)=>{
+    try {
+        const activities = await Activity.findAll({});
+        res.status(200).send(activities);
+
+    }catch (err) {
+        console.log(err)
+    }
+
+})
 
 
 module.exports = router;

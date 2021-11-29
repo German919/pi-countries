@@ -6,6 +6,7 @@ export const SEARCH_BY_NAME ="SEARCH_BY_NAME";
 export const ORDER_ASC_DESC = "ORDER_ASC_DESC";
 export const ORDER_BY_POPULATION = "ORDER_BY_POPULATION";
 export const CREATE_ACTIVITY = "CREATE_ACTIVITY";
+export const GET_ALL_ACTIVITIES = "GET_ALL_ACTIVITIES";
 
 export const getAllContries = () => {
     return async function(dispatch) {
@@ -56,5 +57,15 @@ export const postActivity = (activity) => {
             type: CREATE_ACTIVITY,
             payload: newActivity
         })
+    }
+ }
+
+ export const getAllActivities = () => {
+    return async function(dispatch) {
+        const activities = await axios.get("http://localhost:3001/activities")
+        return dispatch({
+            type: GET_ALL_ACTIVITIES,
+            payload: activities.data
+        }) 
     }
  }

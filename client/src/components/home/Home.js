@@ -1,6 +1,6 @@
 import React,{useState, useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {getAllContries} from "../../actions";
+import {getAllActivities, getAllContries} from "../../actions";
 import Card from "../card/Card";
 import styles from "./home.module.css";
 import stylesLoading from "./loading.module.css";
@@ -20,6 +20,7 @@ const Home = () => {
     
     const dispatch = useDispatch();
     const countries = useSelector((state) => state.countries);
+    const activities = useSelector((state) => state.activities);
 
     const [order, setOrder] = useState("");
     const [currentPage, setCurrentPage] = useState(1); //comienza en la pagina 1
@@ -40,6 +41,9 @@ const Home = () => {
     useEffect(() => {
         dispatch(getAllContries())
     },[]);
+    useEffect(() => {
+        dispatch(getAllActivities())
+    },[])
 
     const handleRecargar = () => {
         dispatch(getAllContries())
@@ -77,7 +81,7 @@ const Home = () => {
                     setOrder = {setOrder}    
                 />
 
-                <SearchActivity />
+                <SearchActivity activities = {activities} />
 
             </div>              
             

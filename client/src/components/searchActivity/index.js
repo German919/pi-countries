@@ -1,14 +1,19 @@
 import React from 'react';
 import styles from './index.module.css';
 
-const SearchActivity = () => {
+const SearchActivity = ({activities}) => {
 
     return (
 
         <div className={styles.container}>
             <select className={styles.containerSelect}>
-                <option className={styles.containerSelectOp} value="">actividades1</option>
-                <option className={styles.containerSelectOp} value="">actividades2</option>
+                {
+                    activities && activities.map( (act, i) => (
+                        <option key={i} 
+                            className={styles.containerSelectOp} 
+                            value={act.id}>{act.name}</option>        
+                    ))
+                }
             </select>
         </div>
     )
