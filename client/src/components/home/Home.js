@@ -60,7 +60,7 @@ const Home = () => {
                     <button 
                         onClick={handleBackPage}
                         className={styles.BtnReloadCountries}
-                        ><i class="fas fa-backward"></i> Back
+                        > <i className="fas fa-step-backward"></i> Back
                     </button> 
                 </div>
                 
