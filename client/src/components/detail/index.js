@@ -1,20 +1,23 @@
 import React, { useEffect } from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {useParams} from "react-router-dom";
+import {useParams, useHistory} from "react-router-dom";
 import { filterById } from "../../actions";
 import styles from "./index.module.css";
 
 const Details = () => {
 
     const dispatch = useDispatch();
-    const country = useSelector((state) => state.details)
-    const {id} = useParams()
+    const country = useSelector((state) => state.details);
+    const {id} = useParams();
+    const history = useHistory();
 
     useEffect(() => {
         dispatch(filterById(id))
     },[]);
 
-    console.log(country)
+    const handleAccept = () => {
+        history.push("/home");
+    }
 
     return (
         <>
@@ -42,12 +45,13 @@ const Details = () => {
 
 
             <div className={styles.containerActivity}>
+                <button onClick={handleAccept} className={styles.btnDetails}>Accept</button>
                 <div>
                     <h3 className={styles.activityTitle}>Activities</h3>
                 </div>
                 <div className={styles.containerActivity1}>
                 {
-                    country.activities ?
+                    country.activities &&
                     country.activities.map(el=>(
                         <div 
                         className={country.activities.length > 2 ? styles.activities : styles.act}>
@@ -57,11 +61,14 @@ const Details = () => {
                             <h4>Season: {el.season}</h4>
                         </div>
                     ))
-                    :
-                    <div className={styles.containerNoActivity}>
-                        <h2>no activities</h2>
-                    </div>    
                 }  
+                {
+                    country.activities &&
+                        country.activities.length === 0 ? 
+                        <div className={styles.noActivity}>No Activities</div> 
+                        : ""
+                }
+
                 </div>
             </div>
         </div>
