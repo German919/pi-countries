@@ -52,6 +52,7 @@ const Home = () => {
     const handleBackPage = () => {
         history.push("/")
     }
+
     return(
         <div className={styles.container}>
             <div className={styles.containerSuperior}>
@@ -116,6 +117,7 @@ const Home = () => {
                             currentCountries.map( (el, i) => (
                                     <Card 
                                         key={i} 
+                                        id={el.id}
                                         image={el.image} 
                                         name={el.name} 
                                         continent={el.continent} 

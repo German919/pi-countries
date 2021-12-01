@@ -8,6 +8,7 @@ export const ORDER_BY_POPULATION = "ORDER_BY_POPULATION";
 export const CREATE_ACTIVITY = "CREATE_ACTIVITY";
 export const GET_ALL_ACTIVITIES = "GET_ALL_ACTIVITIES";
 export const FILTER_BY_ACTIVITY = "FILTER_BY_ACTIVITY";
+export const FILTER_BY_ID = "FILTER_BY_ID";
 
 export const getAllContries = () => {
     return async function(dispatch) {
@@ -61,7 +62,7 @@ export const postActivity = (activity) => {
     }
  }
 
- export const getAllActivities = () => {
+export const getAllActivities = () => {
     return async function(dispatch) {
         const activities = await axios.get("http://localhost:3001/activities")
         return dispatch({
@@ -69,11 +70,21 @@ export const postActivity = (activity) => {
             payload: activities.data
         }) 
     }
- }
+}
 
- export const filterByActivity = (activity) => {
+export const filterByActivity = (activity) => {
     return { 
         type: FILTER_BY_ACTIVITY,
         payload : activity
     }
  }
+
+export const filterById = (id) => {
+    return async function(dispatch) {
+        const detailCountry = await axios.get(`http://localhost:3001/countries/${id}`)
+        return dispatch({
+            type: FILTER_BY_ID,
+            payload: detailCountry.data
+        })
+    }
+}

@@ -49,27 +49,6 @@
   color: #01161a;
 }
 
-/* .containerButton{
-  height:15%;
-} */
-/* .btnDetails{
-  border-radius: .2rem;
-  font-weight: 700;
-  padding: 7px;
-  border: transparent;
-  border-radius: .2rem;
-  background-image: linear-gradient(#F5B7B1 , #CB4335);
-  cursor: pointer;
-  color: #000;
-  
-}
-.btnDetails:hover{
-  color: white;
-  background-image: linear-gradient(#e69d96 , #5f1007);
-}
-.btnDetails:active{
-  transform:scale(.99)
-} */
 @keyframes principal {
   to {
     transform: perspective(500px) rotate3d(0, -1, 0, 10deg);

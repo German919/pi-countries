@@ -1,11 +1,13 @@
 import {GET_ALL_CONTRIES, FILTER_BY_CONTINENTS, 
         SEARCH_BY_NAME, ORDER_ASC_DESC, ORDER_BY_POPULATION,
-        CREATE_ACTIVITY, GET_ALL_ACTIVITIES, FILTER_BY_ACTIVITY} from "../actions";
+        CREATE_ACTIVITY, GET_ALL_ACTIVITIES, 
+        FILTER_BY_ID, FILTER_BY_ACTIVITY} from "../actions";
 
 const initialState = {
     countries:[],
     copyCountries: [],
     activities:[],
+    details:[]
 }
 
 const rootReducer = (state=initialState, action) => {
@@ -80,6 +82,12 @@ const rootReducer = (state=initialState, action) => {
             return {
                 ...state,
                 countries: activitiesCountries
+            }
+        }
+        case FILTER_BY_ID:{
+            return {
+                ...state,
+                details : action.payload
             }
         }
         default:

@@ -1,10 +1,20 @@
 import React from 'react';
 import styles from "./card.module.css";
+import {useHistory} from "react-router-dom";
 
-const Card = ({image, name, continent, population}) => {
+const Card = ({id, image, name, continent, population}) => {
+
+    const history = useHistory()
+
+    const handleDetail = (id) => {
+        console.log("DETALLE")
+        history.push(`/home/detail/${id}`)
+    }
     
     return (
-        <div className={styles.container}>
+        <div 
+            onClick={()=>handleDetail(id)}
+            className={styles.container}>
             <div className={styles.containerName}>
                 <h4 className={styles.title}>{name}</h4>
             </div>
@@ -16,7 +26,6 @@ const Card = ({image, name, continent, population}) => {
             </div>
             <div className={styles.containerSubtitle}>
             <h6 className={styles.population}>Population: {population}</h6>
-                {/* <button className={styles.btnDetails}>Details</button> */}
             </div>
         </div>
     )
