@@ -3,12 +3,13 @@ import {useDispatch} from "react-redux";
 import { filterByContinents } from '../../actions';
 import styles from "./index.module.css";
 
-const FilterByContinents = () => {
+const FilterByContinents = ({setCurrentPage}) => {
 
     const dispatch = useDispatch();
 
     const filterContinents = (e) => {
         dispatch(filterByContinents(e.target.value))
+        setCurrentPage(1)
     }
  
     return (

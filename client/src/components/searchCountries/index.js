@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 import { searchByName } from '../../actions';
 import styles from "./index.module.css";
 
-const SearchCountries = () => {
+const SearchCountries = ({setCurrentPage}) => {
 
     const [name, setName] = useState("");
     const dispatch = useDispatch();
@@ -28,6 +28,7 @@ const SearchCountries = () => {
         setError(validate(name))
         if(Object.keys(validate(name)).length === 0){
             dispatch(searchByName(name));
+            setCurrentPage(1)
             setName("");
         }
         setName("");

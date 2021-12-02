@@ -16,9 +16,10 @@ import {useHistory} from "react-router-dom";
 
 const Home = () => {
 
-    const history = useHistory()
+    const history = useHistory();
     
     const dispatch = useDispatch();
+
     const countries = useSelector((state) => state.countries);
     const activities = useSelector((state) => state.activities);
 
@@ -28,19 +29,22 @@ const Home = () => {
     
     const indexOfLastCountry = currentPage * countriesPerPage; //9
     const indexOfFirstCountry = indexOfLastCountry - countriesPerPage; //0
+    
     const currentCountries = countries && countries.slice(indexOfFirstCountry, indexOfLastCountry);
 
     const paginado = (page) => {
         setCurrentPage(page)
         if(page === 1){
-            setCountriesPerPage(9)
+             setCountriesPerPage(9)
         }else{
-            setCountriesPerPage(10)
+             setCountriesPerPage(10)
         }
     }
+
     useEffect(() => {
         dispatch(getAllContries())
     },[]);
+
     useEffect(() => {
         dispatch(getAllActivities())
     },[])
@@ -52,7 +56,7 @@ const Home = () => {
     const handleBackPage = () => {
         history.push("/")
     }
-
+    
     return(
         <div className={styles.container}>
             <div className={styles.containerSuperior}>
@@ -94,9 +98,9 @@ const Home = () => {
 
                 <div className={styles.containerInferiorSub1}>
 
-                    <SearchCountries />
+                    <SearchCountries setCurrentPage={setCurrentPage}/>
               
-                    <FilterByContinents /> 
+                    <FilterByContinents setCurrentPage={setCurrentPage}/> 
 
                     <CreateActivity />
 

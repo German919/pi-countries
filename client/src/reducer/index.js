@@ -12,6 +12,7 @@ const initialState = {
 
 const rootReducer = (state=initialState, action) => {
     console.log(action)
+    
     switch (action.type) {
         case GET_ALL_CONTRIES:{
             return{
@@ -23,6 +24,7 @@ const rootReducer = (state=initialState, action) => {
         case FILTER_BY_CONTINENTS:{
             const allCountries = state.copyCountries;
             const filterCountries = action.payload === "All" ? allCountries : allCountries.filter( c => c.continent[0] === action.payload)
+            console.log(filterCountries)
             return {
                 ...state,
                 countries : filterCountries

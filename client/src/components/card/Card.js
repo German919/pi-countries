@@ -7,7 +7,6 @@ const Card = ({id, image, name, continent, population}) => {
     const history = useHistory()
 
     const handleDetail = (id) => {
-        console.log("DETALLE")
         history.push(`/home/detail/${id}`)
     }
     
