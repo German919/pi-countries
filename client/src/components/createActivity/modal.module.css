@@ -1,0 +1,60 @@
+.modal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    border: 1px solid white;
+    width: 100%;
+    min-height: 100vh;
+    background-color: rgba(0, 0, 0, .45);
+    
+}
+
+.modalContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 300px;
+    max-width: 400px;
+    min-height:250px;
+    max-height: 400px;
+    border-top: 3px solid rgb(153, 91, 91);
+    border-bottom: 3px solid rgb(153, 91, 91);
+    border-right: 1px solid rgb(167, 116, 116);
+    border-left: 1px solid rgb(167, 116, 116);
+    border-radius: 10px;
+    background-image: linear-gradient(#e6d2cf , #663631);
+}
+
+.modalBtn{
+    font-weight: 700;
+    font-family: 'Roboto Slab', serif;
+    padding: 10px;
+    border: transparent;
+    border:none;
+    border-radius: .2rem;
+    background-image: linear-gradient(#FEF5E7 , #f1e2c9);
+    cursor: pointer;
+    color: rgb(17, 17, 17);
+    transition-duration: 2s;
+    margin: 10px 5px 10px 5px
+}
+
+.modalBtn:hover{
+    color: rgb(24, 2, 2);
+    background-image: linear-gradient(#FEF5E7 , #cfb58a);
+    transition-duration: 2s
+}
+.modalBtn:active{
+    transform:scale(.99)
+}
+
+.modalTitle{
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
+    color: rgb(22, 22, 22);
+}

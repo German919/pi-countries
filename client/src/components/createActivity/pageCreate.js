@@ -4,6 +4,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {getAllContries, postActivity} from "../../actions"
 import stylesLoading from "../home/loading.module.css";
 import {useHistory} from "react-router-dom";
+import Modal from './modal';
 
 const validate = (value) => {
 
@@ -29,7 +30,9 @@ const PageCreate = () => {
 
     const imagen = "https://imagenes.elpais.com/resizer/poLxVzmwPheHVMXrqCcigjqj9BE=/414x311/filters:focal(436x272:446x282)/cloudfront-eu-central-1.images.arcpublishing.com/prisa/GGWILMLEOATEMMU4WZDAG32W4Y.jpg";
 
-    const history = useHistory()
+    const history = useHistory();
+
+    const [modal, setModal] = useState(false);
 
     const [error, setError] = useState({
         name:"",
@@ -97,7 +100,7 @@ const PageCreate = () => {
                 season:"",
                 idCountry:[]
             })
-            alert("Successfully created activity!!")
+            setModal(true);
         }
         
     }
@@ -107,6 +110,10 @@ const PageCreate = () => {
 
     return (
         <div className={styles.contenedorPrincipal}>
+            {
+               modal &&  <Modal setModal={setModal}/>  
+            } 
+                
             <div className={styles.containerBtns}>
                 <button onClick={handleBackPage} className={styles.containerFormBtn}>Back</button>
             </div>

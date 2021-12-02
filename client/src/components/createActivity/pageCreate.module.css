@@ -1,6 +1,7 @@
 .contenedorPrincipal{
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 .containerBtns{
@@ -208,3 +209,4 @@
     right: 258px;
     color:rgb(235, 79, 79)
 }
+
