@@ -62,6 +62,12 @@ const PageCreate = () => {
             [e.target.name] : e.target.value
         })
     }
+    /////////************** */
+    const handleBlur = (e) => {
+        handleInput(e);
+        setError(validate(data))
+    }
+    //******************** */
     const handleDifficulty = (e) => {
         setData({
             ...data,
@@ -138,7 +144,8 @@ const PageCreate = () => {
                                 name="name"
                                 className={styles.inputActivity}
                                 value={data.name}
-                                onChange={handleInput}    
+                                onChange={handleInput}
+                                onBlur={handleBlur}    
                                 />
                                 {
                                     error.name && <p className={styles.errorName}>{error.name}</p>
@@ -146,7 +153,11 @@ const PageCreate = () => {
                         </div>
                         <div className={styles.containerFormAll}>
                             <label className={styles.labelActivity}>Difficulty: </label>
-                            <select className={styles.selectActivity} onChange={handleDifficulty}>
+                            <select 
+                                className={styles.selectActivity} 
+                                onChange={handleDifficulty}
+                                onBlur={handleBlur}
+                                >
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -164,7 +175,8 @@ const PageCreate = () => {
                                 name="duration"
                                 className={styles.inputActivity1}
                                 value={data.duration}
-                                onChange={handleInput}     
+                                onChange={handleInput} 
+                                onBlur={handleBlur}    
                                 />
                             {
                                 error.duration && <p className={styles.errorDuration}>{error.duration}</p>
@@ -172,7 +184,11 @@ const PageCreate = () => {
                         </div>
                         <div className={styles.containerFormAll}>
                             <label className={styles.labelActivity}>Season: </label>
-                            <select className={styles.selectActivity1} onChange={handleSeason}>
+                            <select 
+                                className={styles.selectActivity1} 
+                                onChange={handleSeason}
+                                onBlur={handleBlur}
+                                >
                                 <option value="Verano">Summer</option>
                                 <option value="Otoño">Autumn</option>
                                 <option value="Invierno">Winter</option>
@@ -184,7 +200,11 @@ const PageCreate = () => {
                         </div>
                         <div className={styles.containerFormAll}>
                             <label className={styles.labelActivity}>Select countries</label>
-                            <select className={styles.selectActivity2} onChange={handleSelectCountries}>
+                            <select 
+                                className={styles.selectActivity2} 
+                                onChange={handleSelectCountries}
+                                onBlur={handleBlur}
+                                >
                                 {
                                     countries.map((country, i) => (
                                         <option key={i} value={country.id}>{country.name}</option>
