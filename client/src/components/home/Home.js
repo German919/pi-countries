@@ -59,7 +59,7 @@ const Home = () => {
     
     return(
         <div className={styles.container}>
-            <div className={styles.containerSuperior}>
+            <nav className={styles.containerSuperior}>
                 <div>
                      
                     <button 
@@ -73,7 +73,7 @@ const Home = () => {
                     <button 
                         onClick={handleRecargar}
                         className={styles.BtnReloadCountries}
-                        >Reload the countries
+                        >Reload countries
                     </button>
                 </div>
 
@@ -92,7 +92,7 @@ const Home = () => {
                     setOrder = {setOrder}    
                     />
 
-            </div>              
+            </nav>              
             
             <div className={styles.containerInferior}> 
 

@@ -10,6 +10,7 @@
     border:none;
     width:150px;
     font-family: 'Roboto Slab', serif;
+    caret-color: rgb(240, 41, 6);
 }
 .inputSearch:focus{
     outline: none;

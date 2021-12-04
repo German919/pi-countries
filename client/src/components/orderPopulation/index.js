@@ -19,7 +19,7 @@ const OrderByPopulation = ({setCurrentPage, setOrder}) => {
         <div className={styles.container}>
         <select className={styles.containerSelect} onChange={handleChange}>
                 <option className={styles.containerSelectOp} value="mayor">higher population</option>
-                <option className={styles.containerSelectOp} value="menor">smaller population</option>
+                <option className={styles.containerSelectOp} value="menor">less population</option>
             </select>
         </div>
     )

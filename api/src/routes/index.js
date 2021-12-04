@@ -33,7 +33,7 @@ const getAll = async () => {
 }
 
 router.get("/countries", async (req, res)=>{
-    // const countries = await getAll();
+
     const name = req.query.name;
     
     try{  
@@ -57,15 +57,6 @@ router.get("/countries", async (req, res)=>{
             const countriesAll = await Country.findAll({
                 include: {model: Activity}
             });
-            // const newCountries = countriesAll.map( el => ({ 
-            //     id:el.id,
-            //     name:el.name,
-            //     image:el.image,
-            //     continent:el.continent, 
-            //     capital:el.capital, 
-            //     population:el.population
-            // }))
-            // res.status(200).send(newCountries)
             res.status(200).send(countriesAll)
         }else{
             const newName = name.charAt(0).toUpperCase() + name.slice(1);
@@ -121,7 +112,6 @@ router.get("/activities", async (req, res)=>{
     }catch (err) {
         console.log(err)
     }
-
 })
 
 
