@@ -89,7 +89,8 @@ const Home = () => {
 
                 <SearchActivity 
                     activities = {activities} 
-                    setOrder = {setOrder}    
+                    setOrder = {setOrder}  
+                    setCurrentPage = {setCurrentPage}  
                     />
 
             </nav>              
