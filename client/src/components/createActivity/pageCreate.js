@@ -21,7 +21,7 @@ const validate = (value) => {
     }else if(value.idCountry.length === 0){
         errors.idCountry = "Required field country"
     }
-    console.log(value.idCountry)
+    
     return errors;
 
 }
@@ -62,12 +62,12 @@ const PageCreate = () => {
             [e.target.name] : e.target.value
         })
     }
-    /////////************** */
+    
     const handleBlur = (e) => {
         handleInput(e);
         setError(validate(data))
     }
-    //******************** */
+    
     const handleDifficulty = (e) => {
         setData({
             ...data,

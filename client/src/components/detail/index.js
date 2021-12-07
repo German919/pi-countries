@@ -43,7 +43,6 @@ const Details = () => {
        
             </div>
 
-
             <div className={styles.containerActivity}>
                 <button onClick={handleAccept} className={styles.btnDetails}>Accept</button>
                 <div>
