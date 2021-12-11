@@ -36,7 +36,8 @@ const getAll = async () => {
               capital: res.capital ? res.capital.map(el => el):["no data"],
               subregion: res.subregion,
               area: res.area,
-              population: res.population
+              population: res.population,
+              maps: res.maps.googleMaps
           }
       }
   )
@@ -61,6 +62,7 @@ const countriesTableLoad = async () => {
                subregion:el.subregion, 
                area:el.area, 
                population:el.population,
+               maps: el.maps
            }
        })
    })

@@ -30,3 +30,12 @@
     cursor: pointer;
     color: rgb(20, 20, 20);
 }
+
+.containerSelectOp1{
+    background-color:#b6716b;
+    font-weight: 500;
+    font-family: 'Roboto Slab', serif;
+    padding: 2.2px;
+    cursor: pointer;
+    color: rgb(248, 246, 246);
+}

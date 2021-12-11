@@ -1,5 +1,5 @@
 import './App.css';
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 import LandingPage from "./components/LandingPage";
 import Home from "./components/home/Home";
 import PageCreate from './components/createActivity/pageCreate';
@@ -10,17 +10,12 @@ function App() {
   return (
     <Router>
       <div className="App">
-       
-          {/* <Route exact path="/" element={<LandingPage/>} />
-          <Route exact path="/home" element={<Home/>} /> */}
-          <Route exact path="/" component={LandingPage} />
-          <Route exact path="/home" component={Home} /> 
-          <Route exact path="/createActivity" component={PageCreate} />
-          <Route exact path="/home/detail/:id" component={Details} />
-
+        <Route exact path="/" component={LandingPage} />
+        <Route exact path="/home" component={Home} /> 
+        <Route exact path="/createActivity" component={PageCreate} />
+        <Route exact path="/home/detail/:id" component={Details} />
       </div>
     </Router>
-  
   );
 }
 

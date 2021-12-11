@@ -17,6 +17,7 @@ const SearchActivity = ({activities, setOrder, setCurrentPage}) => {
 
         <div className={styles.container}>
             <select onChange={(e)=>handleFilterActivity(e)} className={styles.containerSelect}>
+                <option className={styles.containerSelectOp1}>search activity</option>
                 {
                     activities && activities.map( (act, i) => (
                         <option key={i} 

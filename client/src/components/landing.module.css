@@ -5,35 +5,80 @@
   align-items: center;
   margin: 100px 0 0 0;
 }
+.containerTitle{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
 .title{
-  font-size:3rem;
+  position: relative;
+  top:-5rem;
+  font-size:2.7rem;
   font-weight: 700;
   font-family: 'Roboto Slab', serif;
-  color: rgb(230, 172, 111);
-  
+  color: rgb(153, 146, 201);
+  text-align: left;
 }
+
+.subtitle{
+  position: relative;
+  top:-7rem;
+  font-size:1.7rem;
+  font-weight: 700;
+  font-family: 'Roboto Slab', serif;
+  color: rgb(181, 176, 212);
+  text-align: left;
+} 
+
+.containerBtn{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  top:-5rem;
+}
+
 .btnHome{
   font-weight: 600;
   font-family: 'Roboto Slab', serif;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   padding: 10px;
   border: transparent;
   border:none;
-  border-radius: .2rem;
-  background-image: linear-gradient(#eee7e5 , #8a5854);
+  border-radius: 999px;
+  background-image: linear-gradient(#533f52 , #290636);
   cursor: pointer;
-  color: rgb(20, 3, 3);
+  color: rgb(227, 219, 231);
+  margin-top: .5rem;
 }
 
 .btnHome:hover{
-  /* color: rgb(194, 171, 171); */
-  background-image: linear-gradient(#e6d5d5 , #d47663);
+  background-image: linear-gradient(#a08c9f , #471658);
+  color: rgb(251, 250, 252);
 }
 .btnHome:active{
   transform:scale(.99)
 }
-
-
+.containerIcons{
+  display:flex;
+  position: relative;
+  top:-3rem;
+  padding:0;
+  margin: 0;
+}
+.iconsLinkedin{
+  color: #1951CA; 
+  background-color: white; 
+  font-size: 2rem;
+  cursor: pointer;
+  margin-right: 3px;
+}
+.iconsGit{
+  color:#101111;
+  background-color: white; 
+  font-size: 2rem;
+  cursor: pointer;
+}
 
 
 

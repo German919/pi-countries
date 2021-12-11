@@ -24,21 +24,21 @@ const Home = () => {
     const activities = useSelector((state) => state.activities);
 
     const [order, setOrder] = useState("");
-    const [currentPage, setCurrentPage] = useState(1); //comienza en la pagina 1
-    const [countriesPerPage, setCountriesPerPage] = useState(9); // cada pagina tiene 9 countries
+    const [currentPage, setCurrentPage] = useState(1); 
+    const [countriesPerPage, setCountriesPerPage] = useState(10); 
     
-    const indexOfLastCountry = currentPage * countriesPerPage; //9
-    const indexOfFirstCountry = indexOfLastCountry - countriesPerPage; //0
+    const indexLast = currentPage * countriesPerPage; 
+    const indexFirst = indexLast - countriesPerPage;  
     
-    const currentCountries = countries && countries.slice(indexOfFirstCountry, indexOfLastCountry);
+    const currentCountries = countries && countries.slice(indexFirst, indexLast);
 
     const paginado = (page) => {
         setCurrentPage(page)
-        if(page === 1){
-             setCountriesPerPage(9)
-        }else{
-             setCountriesPerPage(10)
-        }
+        // if(page === 1){
+        //      setCountriesPerPage(9)
+        // }else{
+        //      setCountriesPerPage(10)
+        // }
     }
 
     useEffect(() => {

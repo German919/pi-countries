@@ -24,7 +24,7 @@ export const getAllContries = () => {
 export const filterByContinents = (payload) => {
     return { 
         type : FILTER_BY_CONTINENTS,
-        payload 
+        payload
     }
 }
 

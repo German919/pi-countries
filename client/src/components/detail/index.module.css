@@ -8,7 +8,7 @@
 .containerCountry{
     display:flex;
     flex-direction: column;
-    margin-top: 3rem;
+    margin-top: 1.5rem;
     width:40%;
     height:90%;
     background-image: linear-gradient(rgba(245, 248, 248, 0.5), rgba(182, 35, 19, 0.7)); 
@@ -39,6 +39,7 @@
     width:230px;
     height: 130px;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 .containerActivity{
@@ -46,7 +47,7 @@
     display:flex;
     flex-direction: column;
     align-items:center;
-    margin-top: 3rem;
+    margin-top: 1.5rem;
     width:60%;
     height:90%;
     border-radius: 5px;
@@ -71,28 +72,28 @@
 
 .activities{
     align-items: center;
-    width: 200px;
-    height:180px;
+    width: 45%;
+    height:200px;
     background-image: linear-gradient(rgba(143, 172, 172, 0.5), rgba(68, 17, 11, 0.7)); 
-    padding: 1.2rem;
     border-radius: 5px;
     color: #161312;
-    border:2px solid rgb(110, 77, 77); 
+    margin-top: -14rem;
 }
 .activities h4{
-    margin: 15px;
+    color: #000000;
 }
 
 .act{
     margin-top: -14rem;
     align-items: center;
-    width: 200px;
+    width: 65%;
     height:200px;
     background-image: linear-gradient(rgba(143, 172, 172, 0.5), rgba(68, 17, 11, 0.7)); 
-    padding: 1.2rem;
     border-radius: 5px;
     color: #161312;
-    border:2px solid rgb(110, 77, 77);
+}
+.act h4{
+    color: #000000;
 }
 
 .noActivity{
@@ -114,7 +115,7 @@
     border: transparent;
     border:none;
     border-radius: .2rem;
-    background-image: linear-gradient(#bdae95 , #41341f);
+    background-image: linear-gradient(rgba(180, 201, 201, 0.5), rgba(32, 5, 2, 0.7)); 
     cursor: pointer;
     color: rgb(32, 29, 29);
     margin: 10px 5px 10px 5px;
@@ -122,11 +123,53 @@
 }
 
 .btnDetails:hover{
-    color: rgb(199, 208, 226);
-    background-image: linear-gradient(#ccbca3 , #6d542c);
+    color: rgb(2, 12, 22);
+    background-image: linear-gradient(rgba(251, 252, 249, 0.3), rgba(194, 141, 141, 0.8)); 
     transition-duration: 1s;
     letter-spacing: .2px;
 }
 .btnDetails:active{
     transform:scale(.85)
 }
+
+.btnMaps{
+    font-weight: 600;
+    font-family: 'Roboto Slab', serif;
+    padding: 7px;
+    border: transparent;
+    border:none;
+    border-radius: .2rem;
+    /* background-image: linear-gradient(rgba(231, 63, 63, 0.5), rgba(245, 8, 8, 0.7));*/
+    background-color: rgb(201, 96, 96);
+    cursor: pointer;
+    color: rgb(2, 12, 22);
+    margin: 10px 5px 10px 5px;
+    letter-spacing: .2px;
+}
+
+.btnMaps:hover{
+    color: rgb(2, 12, 22);
+    background-image: linear-gradient(rgba(226, 185, 195, 0.5), rgba(155, 35, 35, 0.7)); 
+    transition-duration: 1s;
+    letter-spacing: .2px;
+}
+.btnMaps:active{
+    transform:scale(.85)
+}
+
+.title{
+    padding:.7rem 0.1rem;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    color: rgb(8, 0, 0);
+    font-weight: 700;
+    font-size: 1rem;
+    font-family: 'Roboto Slab', serif;
+    margin-top: 0;
+    background-image: linear-gradient(rgba(247, 246, 250, 0.5), rgba(39, 9, 5, 0.7)); 
+}
+
+span{
+    color: rgb(34, 3, 3);
+}
+
